@@ -1,0 +1,22 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300, "height": 200,
+    "data": {
+        "url": "test.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "transform": [
+        {
+            "calculate": "toDate(datum.date, '%d/%m/%Y')",
+            "as": "year"
+        }
+    ],
+    "mark": "point",
+    "encoding": {
+        "x": {
+            "field": "date", "type":"temporal", "timeUnit": "year"
+        }
+    }
+}  
