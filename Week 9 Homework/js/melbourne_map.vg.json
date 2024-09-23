@@ -7,9 +7,81 @@
     "layer": [
         {    
             "data": {
-                "url": "greater_melbourne.json",
+                "url": "inner.json",
                 "format": {
-                    "type": "topojson", "feature": "geojson"
+                    "type": "topojson", "feature": "inner"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "inner_east.json",
+                "format": {
+                    "type": "topojson", "feature": "inner_east"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "north_east.json",
+                "format": {
+                    "type": "topojson", "feature": "north_east"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "north_west.json",
+                "format": {
+                    "type": "topojson", "feature": "north_west"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "west.json",
+                "format": {
+                    "type": "topojson", "feature": "west"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "south_east.json",
+                "format": {
+                    "type": "topojson", "feature": "south_east"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "outer_east.json",
+                "format": {
+                    "type": "topojson", "feature": "outer_east"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "mornington_peninsula.json",
+                "format": {
+                    "type": "topojson", "feature": "mornington_peninsula"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        },
+        {    
+            "data": {
+                "url": "inner_south.json",
+                "format": {
+                    "type": "topojson", "feature": "inner_south"
                 }
             },
             "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
