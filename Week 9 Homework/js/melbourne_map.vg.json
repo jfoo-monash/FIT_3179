@@ -1,0 +1,20 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 450,
+    "title": "Map of Greater Melbourne",
+    "projection": {"type": "equirectangular"},
+    "layer": [
+        {    
+            "data": {
+                "url": "greater_melbourne.json",
+                "format": {
+                    "type": "topojson", "feature": "geojson"
+                }
+            },
+            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+        }
+    ]
+
+
+}
