@@ -7,7 +7,7 @@
     "layer": [
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "inner"
                 }
@@ -16,7 +16,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "inner_east"
                 }
@@ -25,7 +25,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "north_east"
                 }
@@ -34,7 +34,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "north_west"
                 }
@@ -43,7 +43,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "west"
                 }
@@ -52,7 +52,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "south_east"
                 }
@@ -61,7 +61,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "outer_east"
                 }
@@ -70,7 +70,7 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "mornington_peninsula"
                 }
@@ -79,14 +79,36 @@
         },
         {    
             "data": {
-                "url": "output.json",
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
                 "format": {
                     "type": "topojson", "feature": "inner_south"
                 }
             },
             "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
         }
-    ]
-
+    ],
+    "transform": [
+        {
+            "lookup": "properties.melb_area",
+            "from": {
+                "data":{"url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"},
+                "key": "melb_area",
+                "fields": ["percentage"]
+            }
+        }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+        "color": {
+            "field": "percentage",
+            "type": "quantitative",
+            "scale": {"type": "log"}
+          },
+          "tooltip": [
+            {"field": "properties.melb_area", "type": "nominal", "title": "Area"},
+            {"field": "percentage", "type": "quantitative"}
+          ]
+      
+    }
 
 }
