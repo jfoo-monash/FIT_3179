@@ -86,7 +86,14 @@
             },
             "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
         }
-    ]
-
+    ],
+    "transform": [{
+        "lookup": "melb_area",
+        "from": {
+            "data":{
+                "url": "data/cultural_ratio.csv"
+            }
+        }
+    }]
 
 }
