@@ -12,7 +12,12 @@
                     "type": "topojson", "feature": "inner"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"},
+            "encoding": {
+                "color": {
+                    "field": "percentage"
+                }
+            }
         },
         {    
             "data": {
@@ -21,7 +26,7 @@
                     "type": "topojson", "feature": "inner_east"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -30,7 +35,7 @@
                     "type": "topojson", "feature": "north_east"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -39,7 +44,7 @@
                     "type": "topojson", "feature": "north_west"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -48,7 +53,7 @@
                     "type": "topojson", "feature": "west"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -57,7 +62,7 @@
                     "type": "topojson", "feature": "south_east"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -66,7 +71,7 @@
                     "type": "topojson", "feature": "outer_east"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -75,7 +80,7 @@
                     "type": "topojson", "feature": "mornington_peninsula"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {    
             "data": {
@@ -84,7 +89,7 @@
                     "type": "topojson", "feature": "inner_south"
                 }
             },
-            "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
+            "mark": {"type": "geoshape"}
         },
         {
             "data": {
@@ -102,17 +107,8 @@
                 ]
             }
         }
-    ],
-    "transform": [
-        {
-            "lookup": "properties.melb_area",
-            "from": {
-                "data":{"url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"},
-                "key": "melb_area",
-                "fields": ["percentage"]
-            }
-        }
     ]
+
 
 
 }
