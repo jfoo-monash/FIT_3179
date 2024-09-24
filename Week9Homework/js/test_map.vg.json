@@ -87,13 +87,28 @@
             "mark": {"type": "geoshape", "fill": "white", "stroke": "black"}
         }
     ],
-    "transform": [{
-        "lookup": "melb_area",
-        "from": {
-            "data":{
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"
+    "transform": [
+        {
+            "lookup": "properties.melb_area",
+            "from": {
+                "data":{"url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"},
+                "key": "melb_area",
+                "fields": ["percentage"]
             }
         }
-    }]
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+        "color": {
+            "field": "percentage",
+            "type": "quantitative",
+            "scale": {"type": "log"}
+          },
+          "tooltip": [
+            {"field": "properties.melb_area", "type": "nominal", "title": "Area"},
+            {"field": "percentage", "type": "quantitative"}
+          ]
+      
+    }
 
 }
