@@ -7,6 +7,15 @@
     "layer": [
         {
             "data": {
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/surrounding_area.json",
+                "format": {
+                    "type": "topojson", "feature": "surrounding_area"
+                }
+            },
+            "mark": {"type": "geoshape", "stroke": "grey", "fill": "white"}
+        },
+        {
+            "data": {
                 "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/greater_melbourne.json",
                 "format": {"type": "topojson", "feature": "greater_melbourne"}
             },
@@ -23,7 +32,7 @@
                 },
                 {"calculate": "datum.percentage + 1", "as": "ethnic_percent"}
             ],
-            "mark": {"type": "geoshape"},
+            "mark": {"type": "geoshape", "stroke": "grey"},
             "encoding": {
                 "color": {
                     "field": "ethnic_percent",
@@ -35,11 +44,6 @@
                     {"field": "properties.melb_area", "type": "nominal", "title": "Ethnic Percentage"},
                     {"field": "ethnic_percent", "type": "quantitative"}
                 ]
-            }
-        },
-        {
-            "data": {
-                "url": ""
             }
         }
     ]
