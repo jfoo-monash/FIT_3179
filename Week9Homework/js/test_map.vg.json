@@ -4,29 +4,43 @@
     "height": 450,
     "title": "Map of Greater Melbourne's share of ethnic minorities",
     "projection": {"type": "equirectangular"},
-    "data": {
-        "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/greater_melbourne.json",
-        "format": {"type": "topojson", "feature": "greater_melbourne"}
-    },
-    "transform": [
+    "layer": [
         {
-            "lookup": "properties.melb_area",
-            "from": {
-                "data": {
-                    "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"
+            "data": {
+                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/greater_melbourne.json",
+                "format": {"type": "topojson", "feature": "greater_melbourne"}
+            },
+            "transform": [
+                {
+                    "lookup": "properties.melb_area",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"
+                        },
+                        "key": "melb_area",
+                        "fields": ["percentage"]
+                    }
                 },
-                "key": "melb_area",
-                "fields": ["percentage"]
+                {"calculate": "datum.percentage + 1", "as": "ethnic_percent"}
+            ],
+            "mark": {"type": "geoshape"},
+            "encoding": {
+                "color": {
+                    "field": "ethnic_percent",
+                    "type": "quantitative",
+                    "scale": {"type": "linear"},
+                    "title": "Ethnic Percent"
+                },
+                "tooltip": [
+                    {"field": "properties.melb_area", "type": "nominal", "title": "Ethnic Percentage"},
+                    {"field": "ethnic_percent", "type": "quantitative"}
+                ]
             }
         },
-        {"calculate": "datum.percentage + 1", "as": "ethnic_percent"}
-    ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-        "color": {
-            "field": "ethnic_percent",
-            "type": "quantitative",
-            "scale": {"type": "linear"}
+        {
+            "data": {
+                "url": ""
+            }
         }
-    }
+    ]
 }
