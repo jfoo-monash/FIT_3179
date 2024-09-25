@@ -2,113 +2,31 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 450,
-    "title": "Map of Greater Melbourne",
+    "title": "Map of Greater Melbourne's share of ethnic minorities",
     "projection": {"type": "equirectangular"},
-    "layer": [
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "inner"
-                }
-            },
-            "mark": {"type": "geoshape"},
-            "encoding": {
-                "color": {
-                    "field": "percentage"
-                }
-            }
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "inner_east"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "north_east"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "north_west"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "west"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "south_east"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "outer_east"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "mornington_peninsula"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
-        {    
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/output.json",
-                "format": {
-                    "type": "topojson", "feature": "inner_south"
-                }
-            },
-            "mark": {"type": "geoshape"}
-        },
+    "data": {
+        "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/js/greater_melbourne.json",
+        "format": {"type": "topojson", "feature": "greater_melbourne"}
+    },
+    "transform": [
         {
-            "data": {
-                "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"
-            },
-            "mark": {"type": "geoshape"},
-            "encoding": {
-                "color": {
-                    "field": "percentage",
-                    "type": "quantitative"
-                  },
-                  "tooltip": [
-                    {"field": "properties.melb_area", "type": "nominal", "title": "Area"},
-                    {"field": "percentage", "type": "quantitative"}
-                ]
+            "lookup": "properties.melb_area",
+            "from": {
+                "data": {
+                    "url": "https://raw.githubusercontent.com/jfoo-monash/FIT_3179/refs/heads/main/Week9Homework/data/cultural_ratio.csv"
+                },
+                "key": "melb_area",
+                "fields": ["percentage"]
             }
+        },
+        {"calculate": "datum.percentage + 1", "as": "ethnic_percent"}
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+        "color": {
+            "field": "ethnic_percent",
+            "type": "quantitative",
+            "scale": {"type": "linear"}
         }
-    ]
-
-
-
+    }
 }
